@@ -52,42 +52,9 @@ async def main():
         # Call your tool
         TOOL_NAME = "Greet"
 
-        if TOOL_NAME == "Execute_SQL_Query":
-            # result = await client.call_tool("Execute_SQL_Query", query="SELECT * FROM employees")
-            # Extract the 'content' part
-            content_list = None
-            for key, value in result:
-                if key == 'content':
-                    content_list = value
-                    break
-
-            if not content_list:
-                raise ValueError("No content found in tool result.")
-
-            # The content_list is a flat list like:
-            # [TextContent(...), TextContent(...), TextContent(...), ...]
-
-            # Group every 3 items as one row
-            rows = []
-            for i in range(0, len(content_list), 3):
-                name = content_list[i].text
-                phone_no = content_list[i+1].text
-                department = content_list[i+2].text
-                rows.append({
-                    "name": name,
-                    "phone_no": phone_no,
-                    "department": department
-                })
-
-            print("[Client] Extracted rows:")
-            for row in rows:
-                print(row)
-
         if TOOL_NAME == "Greet":
             result = await client.call_tool(TOOL_NAME,name="Urvil")
             print(result.content[0].text)
-
-        # result looks like [('meta', None), ('content', [...]), ('isError', False)]
 
 
     finally:
