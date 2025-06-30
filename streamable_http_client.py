@@ -46,7 +46,7 @@ class MCPClient:
 async def main():
     client = MCPClient()
     try:
-        # await client.connect_to_server("http://44.203.139.39:8000/mcp/")
+        
         await client.connect_to_server("http://127.0.0.1:8000/mcp/")
 
         # Call your tool
