@@ -1,8 +1,8 @@
 from mcp.server.fastmcp import FastMCP
-
+import sys
 
 # Create the server instance
-mcp = FastMCP("Simple Demo",host="0.0.0.0",port=8000)
+mcp = FastMCP("Simple Demo", host="0.0.0.0", port=8000)
 
 # Add a simple tool
 @mcp.tool()
@@ -14,18 +14,20 @@ def Greet(name: str) -> str:
 
 # Start the server
 if __name__ == "__main__":
-
+    # Default transport
     transport = "stdio"
-    # transport = "sse"
-    # transport = "streamable-http"
 
-    if transport == "sse":
-        print("Running Server with SSE")
-        mcp.run(transport=transport)
-    elif transport == "stdio":
-        print("Running Server with stdio")
-        mcp.run(transport="stdio")
-    else:
-        transport == "streamable-http"
-        print("Running Server with Streamable HTTP")
-        mcp.run(transport="streamable-http")
+    # Only ask for input if running interactively
+    if sys.stdin.isatty():
+        print("1 for sse")
+        print("2 for streamable-http")
+        choice = input("Enter the transport type (default: stdio): ").strip()
+        print(f"choice: {choice}")
+
+        if choice == "1":
+            transport = "sse"
+        elif choice == "2":
+            transport = "streamable-http"
+
+    print(f"Using transport: {transport}")
+    mcp.run(transport=transport)
