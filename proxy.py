@@ -2,6 +2,7 @@ from fastmcp import FastMCP
 
 # Target a remote SSE server directly by URL
 proxy = FastMCP.as_proxy("http://localhost:8000/mcp", name="Streamable HTTP to Stdio Proxy")
+# proxy = FastMCP.as_proxy("http://localhost:8000/sse", name="SSE HTTP to Stdio Proxy")
 
 proxy
 # Start the proxy
