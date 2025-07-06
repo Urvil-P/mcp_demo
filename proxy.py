@@ -4,7 +4,6 @@ from fastmcp import FastMCP
 proxy = FastMCP.as_proxy("http://localhost:8000/mcp", name="Streamable HTTP to Stdio Proxy")
 # proxy = FastMCP.as_proxy("http://localhost:8000/sse", name="SSE HTTP to Stdio Proxy")
 
-proxy
 # Start the proxy
 if __name__ == "__main__":
     proxy.run()
