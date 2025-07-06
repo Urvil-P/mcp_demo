@@ -11,6 +11,11 @@ def Greet(name: str) -> str:
     print(f"[Server] Received name: {name}", flush=True)
     return f"Hello, {name}!"
 
+@mcp.tool()
+def Good_Greet(name:str) -> str:
+    """Good Greet a person."""
+    print(f"[Server] Received name: {name}", flush=True)
+    return f"Jai Sri Ram, {name}!"
 
 # Start the server
 if __name__ == "__main__":

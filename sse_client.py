@@ -29,9 +29,12 @@ async def main():
             for tool in tools_result.tools:
                 print(f"  - {tool.name}: {tool.description}")
 
-            # Call our calculator tool
-            result = await session.call_tool("Greet", arguments={"name":"Urvil"})
-            print(f"{result.content[0].text}")
+            # # Call our tool
+            # result1 = await session.call_tool("Greet", arguments={"name":"Urvil"})
+            # print(f"{result1.content[0].text}")
+
+            # result2 = await session.call_tool("Good_Greet", arguments={"name":"Urvil"})
+            # print(f"{result2.content[0].text}")
 
 
 if __name__ == "__main__":
